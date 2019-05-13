@@ -20,7 +20,7 @@ public class RestTest{
         //Создаём переменую headers типа Map
         Map<String, String> headers=new HashMap<>();
         //Добавляем в headers наш заголовок
-        headers.put("User-Agent", "My-Test-User-Agent");
+        headers.put("Content-Type", "application/json");
 
         //Выполняем REST GET запрос с нашими параметрами
         // и сохраняем результат в переменную response.
@@ -40,7 +40,7 @@ public class RestTest{
         //Создаём переменую headers типа Map
         Map<String, String> headers=new HashMap<>();
         //Добавляем в headers наш заголовок
-        headers.put("User-Agent", "My-Test-User-Agent");
+        headers.put("Content-Type", "application/json");
 
         //Выполняем REST GET запрос с нашими параметрами
         // и сохраняем результат в переменную response.
@@ -60,7 +60,7 @@ public class RestTest{
         //Создаём переменую headers типа Map
         Map<String, String> headers=new HashMap<>();
         //Добавляем в headers наш заголовок
-        headers.put("User-Agent", "My-Test-User-Agent");
+        headers.put("Content-Type", "application/json");
 
         //создаём тело запроса
         String requestBody="{\"name\": \"morpheus\",\"job\": \"leader\"}";
@@ -83,7 +83,7 @@ public class RestTest{
         //Создаём переменую headers типа Map
         Map<String, String> headers=new HashMap<>();
         //Добавляем в headers наш заголовок
-        headers.put("User-Agent", "My-Test-User-Agent");
+        headers.put("Content-Type", "application/json");
 
         //создаём тело запроса
         String requestBody="{\"name\": \"morpheus\",\"job\": \"leader\"}";
