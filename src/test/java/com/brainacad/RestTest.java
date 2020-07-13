@@ -1,11 +1,13 @@
 package com.brainacad;
 
 import org.apache.http.HttpResponse;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 
 
 public class RestTest{
@@ -16,20 +18,14 @@ public class RestTest{
     public void checkGetResponseStatusCode() throws IOException {
         String endpoint="/api/users";
 
-        //TODO: Избавится он хедеров в тесте добавив методы с хедерами по умолчанию в класс HttpClientHelper
-        //Создаём переменую headers типа Map
-        Map<String, String> headers=new HashMap<>();
-        //Добавляем в headers наш заголовок
-        headers.put("Content-Type", "application/json");
-
         //Выполняем REST GET запрос с нашими параметрами
         // и сохраняем результат в переменную response.
-        HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2", headers);
+        HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2");
 
         //получаем статус код из ответа
         int statusCode = response.getStatusLine().getStatusCode();
         System.out.println("Response Code : " + statusCode);
-        Assert.assertEquals("Response status code should be 200", 200, statusCode);
+        Assert.assertEquals( 200, statusCode,"Response status code should be 200");
     }
 
     @Test//GET метод
@@ -37,14 +33,10 @@ public class RestTest{
         String endpoint="/api/users";
 
         //TODO: Избавится он хедеров в тесте добавив методы с хедерами по умолчанию в класс HttpClientHelper
-        //Создаём переменую headers типа Map
-        Map<String, String> headers=new HashMap<>();
-        //Добавляем в headers наш заголовок
-        headers.put("Content-Type", "application/json");
 
         //Выполняем REST GET запрос с нашими параметрами
         // и сохраняем результат в переменную response.
-        HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2", headers);
+        HttpResponse response = HttpClientHelper.get(URL+endpoint,"page=2");
 
         //Конвертируем входящий поток тела ответа в строку
         String body=HttpClientHelper.getBodyFromResponse(response);
@@ -57,22 +49,18 @@ public class RestTest{
         String endpoint="/api/users";
 
         //TODO: Избавится он хедеров в тесте добавив методы с хедерами по умолчанию в класс HttpClientHelper
-        //Создаём переменую headers типа Map
-        Map<String, String> headers=new HashMap<>();
-        //Добавляем в headers наш заголовок
-        headers.put("Content-Type", "application/json");
 
         //создаём тело запроса
         String requestBody="{\"name\": \"morpheus\",\"job\": \"leader\"}";
 
         //Выполняем REST POST запрос с нашими параметрами
         // и сохраняем результат в переменную response.
-        HttpResponse response = HttpClientHelper.post(URL+endpoint,requestBody, headers);
+        HttpResponse response = HttpClientHelper.post(URL+endpoint,requestBody);
 
         //получаем статус код из ответа
         int statusCode = response.getStatusLine().getStatusCode();
         System.out.println("Response Code : " + statusCode);
-        Assert.assertEquals("Response status code should be 201", 201, statusCode);
+        Assert.assertEquals( 201, statusCode,"Response status code should be 201");
     }
 
     @Test//POST метод

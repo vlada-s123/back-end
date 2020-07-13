@@ -10,6 +10,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.apache.http.protocol.HTTP.USER_AGENT;
@@ -18,7 +19,11 @@ public class HttpClientHelper {
 
     public static HttpResponse get(String endpointUrl, String parameters){
        //TODO: написать метод для GET запроса с хедерами по умолчанию
-       return null;
+        //Создаём переменую headers типа Map
+        Map<String, String> headers=new HashMap<>();
+        //Добавляем в headers наш заголовок
+        headers.put("Content-Type", "application/json");
+        return null;
     }
 
     //REST GET запрос
@@ -43,6 +48,10 @@ public class HttpClientHelper {
 
     public static HttpResponse post(String endpointUrl, String parameters){
         //TODO: написать метод для POST запроса с хедерами по умолчанию
+        //Создаём переменую headers типа Map
+        Map<String, String> headers=new HashMap<>();
+        //Добавляем в headers наш заголовок
+        headers.put("Content-Type", "application/json");
         return null;
     }
 
